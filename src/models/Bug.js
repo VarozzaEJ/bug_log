@@ -11,7 +11,9 @@ export const BugSchema = new Schema({
     creatorId: { type: Schema.ObjectId, required: true, ref: 'Account' },
 }, { timestamps: true, toJSON: { virtuals: true } })
 
-// BugSchema.virtual('Creator' {
-//     localField: 'creatorId',
-//     ref: 
-// })
+BugSchema.virtual('creator', {
+    localField: 'creatorId',
+    ref: 'Account',
+    foreignField: '_id',
+    justOne: true
+})
