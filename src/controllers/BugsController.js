@@ -11,10 +11,12 @@ export class BugsController extends BaseController {
 
     async createBug(request, response, next) {
         try {
-            const user = request.userInfo
             const bugData = request.body
+            const user = request.userInfo
             bugData.creatorId = user.id
-            const bug = await bugsService.createBug(bugData, user)
+            console.log(bugData);
+            const bug = await bugsService.createBug(bugData)
+            console.log(bug);
             response.send(bug)
         } catch (error) {
             next(error)
