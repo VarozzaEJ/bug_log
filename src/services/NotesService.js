@@ -7,7 +7,7 @@ class NotesService {
         return (bug)
     }
 
-
+    // cna you see 
     getNotes() {
         const notes = dbContext.Notes.find()
         return notes
