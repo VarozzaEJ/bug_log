@@ -5,7 +5,7 @@ import { Forbidden } from "../utils/Errors.js"
 class BugsService {
     async destroybugs(bugId, userId) {
         const bugtodestroy = await this.getbugbyId(bugId)
-        if (userId != bugtodestroy.creatorId) throw new Forbidden('you cant delete the bug you didnt')
+        if (userId != bugtodestroy.creatorId) throw new Forbidden('you cant delete a bug you didnt make')
         await bugtodestroy.deleteOne()
 
         return `${bugtodestroy.description} has been eliminated`
